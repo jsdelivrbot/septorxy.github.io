@@ -4,12 +4,14 @@ var enemy;
 var playerImage;
 var enemyImage;
 var backgroundImage;
+var endGameImage;
 var spaget = new Audio("spaget_sound.mp3");
 
 function preload(){
     playerImage = loadImage("https://i.imgur.com/mZwZWIq.png");
     enemyImage = loadImage("https://i.imgur.com/IcwmtSs.png")
     backgroundImage = loadImage("https://i.imgur.com/jYripRF.png");
+    endGameImage = loadImage("https://i.imgur.com/6sZS7Ls.png");
 }
 function setup(){
     isGameOver = false;
@@ -48,7 +50,7 @@ function draw(){
 }
 
 function gameOver() {
-     background(0);
+     background(endGameImage);
      textAlign(CENTER);
      fill("white");
      text("Game Over!", width/2, height/2);
