@@ -6,6 +6,7 @@ var enemyImage;
 var backgroundImage;
 var endGameImage;
 var spaget = new Audio("spaget_sound.mp3");
+var scoreCounter = 0;
 
 function preload(){
     playerImage = loadImage("https://i.imgur.com/mZwZWIq.png");
@@ -31,17 +32,21 @@ function draw(){
     
     background(backgroundImage);
     
-    if (keyDown(RIGHT_ARROW) && player.position.x < (width-(playerImage.width/2))) {
+    fill("Red");
+    text("Points; " + scoreCounter, width-60, height/15);
+    
+    if (((keyDown(RIGHT_ARROW))|| (keyDown(68))) && player.position.x < (width-(playerImage.width/2))) {
         player.position.x = player.position.x + 2;
     }
     
-    if (keyDown(LEFT_ARROW) && player.position.x > (playerImage.width/2)) {
+    if (((keyDown(LEFT_ARROW))|| (keyDown(65))) && player.position.x > (playerImage.width/2)) {
         player.position.x = player.position.x - 2;
     }
     
-    enemy.position.y = enemy.position.y + 4;
+    enemy.position.y = enemy.position.y + 6;
     
     if (enemy.position.y > height) {
+         scoreCounter++;
          enemy.position.y = 0;
          enemy.position.x = random(5, width-5);
     }
@@ -52,9 +57,9 @@ function draw(){
 function gameOver() {
      background(endGameImage);
      textAlign(CENTER);
-     fill("white");
-     text("Game Over!", width/2, height/2);
-     text("Click anywhere to try again", width/2, 3*height/4);
+     fill("Red");
+     text("Game Over!\nYou scored " + scoreCounter + " points.", width/2, height/2-10);
+     text("Click anywhere to try again", width/2, 3*height/4-10);
      spaget.play();
 }
 function mouseClicked() {
@@ -64,8 +69,20 @@ function mouseClicked() {
         player.position.y = height-(playerImage.height/2);
         enemy.position.x = width/2;
         enemy.position.y = 0;
+        scoreCounter = 0;
      }
 }
-
+function keyPressed() {
+  if (keyCode == 32 || keyCode == 37 || keyCode == 39 || keyCode== 65 || keyCode == 68) {
+      if(isGameOver){
+        isGameOver = false;
+        player.position.x = width/2;
+        player.position.y = height-(playerImage.height/2);
+        enemy.position.x = width/2;
+        enemy.position.y = 0;
+        scoreCounter = 0;
+     }
+  }
+}
 
 
