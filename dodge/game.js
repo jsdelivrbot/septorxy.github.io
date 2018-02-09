@@ -1,6 +1,8 @@
 var isGameOver;
 var player;
 var enemy;
+var enemy2;
+var enemy3;
 var playerImage;
 var enemyImage;
 var backgroundImage;
@@ -16,17 +18,22 @@ function preload(){
 }
 function setup(){
     isGameOver = false;
-    createCanvas(256, 256);
+    createCanvas(500, 500);
     player = createSprite(width/2, height-(playerImage.height/2), 0, 0);
     player.addImage(playerImage);
     enemy = createSprite(width/2, 0, 0, 0)
+    enemy2 = createSprite(width/2, 0, 0, 0)
+    enemy3 = createSprite(width/2, 0, 0, 0)
     enemy.addImage(enemyImage);
+    enemy2.addImage(enemyImage);
+    enemy3.addImage(enemyImage);
+    
 }
 function draw(){
     if(isGameOver){
         gameOver();
     } else {
-    if(enemy.overlap(player)){
+    if(enemy.overlap(player) || enemy2.overlap(player) || enemy3.overlap(player)){
         isGameOver = true;
     }
     
@@ -43,12 +50,22 @@ function draw(){
         player.position.x = player.position.x - 2;
     }
     
-    enemy.position.y = enemy.position.y + 6;
+    enemy.position.y = enemy.position.y + 7;
+    enemy2.position.y = enemy.position.y + 10;
+    enemy3.position.y = enemy.position.y + 3;
     
     if (enemy.position.y > height) {
          scoreCounter++;
          enemy.position.y = 0;
          enemy.position.x = random(5, width-5);
+    }
+    if (enemy2.position.y > height) {
+         enemy2.position.y = 0;
+         enemy2.position.x = random(5, width-5);
+    }
+    if (enemy3.position.y > height) {
+         enemy3.position.y = 0;
+         enemy3.position.x = random(5, width-5);
     }
     drawSprites();
     }
