@@ -85,7 +85,11 @@ function mouseClicked() {
         player.position.x = width/2;
         player.position.y = height-(playerImage.height/2);
         enemy.position.x = width/2;
+        enemy2.position.x = width/2;
+        enemy3.position.x = width/2;
         enemy.position.y = 0;
+        enemy2.position.y = 0;
+        enemy3.position.y = 0;
         scoreCounter = 0;
      }
 }
@@ -96,7 +100,11 @@ function keyPressed() {
         player.position.x = width/2;
         player.position.y = height-(playerImage.height/2);
         enemy.position.x = width/2;
+        enemy2.position.x = width/2;
+        enemy3.position.x = width/2;
         enemy.position.y = 0;
+        enemy2.position.y = 0;
+        enemy3.position.y = 0;
         scoreCounter = 0;
      }
   }
