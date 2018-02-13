@@ -14,8 +14,8 @@ var speedEnemy2 = 10;
 var speedEnemy3 = 3;
 
 function preload(){
-    playerImage = loadImage("https://i.imgur.com/mZwZWIq.png");
-    enemyImage = loadImage("https://i.imgur.com/IcwmtSs.png")
+    playerImage = loadImage("https://i.imgur.com/7G8SpFi.png");
+    enemyImage = loadImage("https://i.imgur.com/DlhBQKi.png")
     backgroundImage = loadImage("https://i.imgur.com/jYripRF.png");
     endGameImage = loadImage("https://i.imgur.com/6sZS7Ls.png");
 }
