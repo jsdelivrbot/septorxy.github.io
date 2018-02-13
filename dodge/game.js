@@ -9,6 +9,9 @@ var backgroundImage;
 var endGameImage;
 var spaget = new Audio("spaget_sound.mp3");
 var scoreCounter = 0;
+var speedEnemy1 = 7;
+var speedEnemy2 = 10;
+var speedEnemy3 = 3;
 
 function preload(){
     playerImage = loadImage("https://i.imgur.com/mZwZWIq.png");
@@ -50,22 +53,31 @@ function draw(){
         player.position.x = player.position.x - 2;
     }
     
-    enemy.position.y = enemy.position.y + 7;
-    enemy2.position.y = enemy.position.y + 10;
-    enemy3.position.y = enemy.position.y + 3;
+    enemy.position.y = enemy.position.y + speedEnemy1;
+    enemy2.position.y = enemy.position.y + speedEnemy2;
+    enemy3.position.y = enemy.position.y + speedEnemy3;
     
     if (enemy.position.y > height) {
          scoreCounter++;
          enemy.position.y = 0;
          enemy.position.x = random(5, width-5);
+         if(scoreCounter == 10 || scoreCounter == 20 || scoreCounter == 30 || scoreCounter == 40 || scoreCounter == 50 || scoreCounter == 60){
+             speedEnemy1++;
+         }
     }
     if (enemy2.position.y > height) {
          enemy2.position.y = 0;
          enemy2.position.x = random(5, width-5);
+         if(scoreCounter == 10 || scoreCounter == 20 || scoreCounter == 30 || scoreCounter == 40 || scoreCounter == 50 || scoreCounter == 60){
+             speedEnemy2++;
+         }
     }
     if (enemy3.position.y > height) {
          enemy3.position.y = 0;
          enemy3.position.x = random(5, width-5);
+         if(scoreCounter == 10 || scoreCounter == 20 || scoreCounter == 30 || scoreCounter == 40 || scoreCounter == 50 || scoreCounter == 60){
+             speedEnemy3++;
+         }
     }
     drawSprites();
     }
@@ -91,6 +103,10 @@ function mouseClicked() {
         enemy2.position.y = 0;
         enemy3.position.y = 0;
         scoreCounter = 0;
+        speedEnemy1 = 7;
+        speedEnemy2 = 10;
+        speedEnemy3 = 3;
+        
      }
 }
 function keyPressed() {
@@ -106,6 +122,9 @@ function keyPressed() {
         enemy2.position.y = 0;
         enemy3.position.y = 0;
         scoreCounter = 0;
+        speedEnemy1 = 7;
+        speedEnemy2 = 10;
+        speedEnemy3 = 3;
      }
   }
 }
