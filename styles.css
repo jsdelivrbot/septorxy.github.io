@@ -5,4 +5,10 @@ body{
     color: white;
     text-align: center;
     font-family: "Arial";
+     background: url("https://media.giphy.com/media/3oEjHWbXcpeKhTktXi/giphy.gif") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
 }
